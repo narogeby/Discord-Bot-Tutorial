@@ -53,6 +53,10 @@ import random
 ```python
 prefix = '1'
 ```
+* Set a variable named interval and make its value 7200
+```python
+interval = 7200
+```
 * Finally declare your class and stub out your messages: 
 ```python
 class MyClient(discord.Client):
@@ -107,4 +111,32 @@ gifs = [{gif1}, {gif2}, {gif3}]
 if(prefix + 'gifs') in message_content:
 	await message.send(random.choice(links))
 ```
-### 14. 
+### 14. Write the "set interval" command.
+* Begin by writing the if statement.
+```python
+if (prefix + 'set interval') in message:
+```
+* Now we want to edit the global variable (the variable outside the class) called interval. To do this we will start by writing the following line of code inside the if statement:
+```python
+global interval
+```
+* The previous step allows us to access the interval variable that is global instead of making a new variable inside the if statement. Now we will set the interval to the value sent by the user in the command using the following command:
+```python
+interval = int(message_content[15:])
+```
+* The previous step just takes the last bit of the message (the part after the space between the word interval and the new interval value) and turns it into an int to set the new interval.
+### 15. Create the on_interval method.
+* The interval method already is set up to run on the interval defined by the interval variable using the
+```python
+@tasks.loop(interval)
+```
+command above the methods header.
+* Acquire the channel ID of the channel you want this message to be sent in.
+* With the channel id write the following lines of code inside the on_interval method:
+```python
+channel = client.get_channel({channel id})
+await channel.send("Whatever you want this to say")
+```
+### 16. Acquire the token for your bot and set it up so your bot can work.
+### 17. Run the python program.
+### 18. Test your bot in your test server.
