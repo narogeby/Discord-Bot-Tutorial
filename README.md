@@ -43,14 +43,13 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * Name the file "{BotName}.py" with whatever name you want.
 * You can put the file in whatever folder you want, but I suggest making a new one for your bot.
 ### 9. Begin by importing your packages, adding special commands, and stubbing out methods.
-* Start by importing the required packages like so: ```python
-import discord
+* Start by importing the required packages like so: 
+```import discord
 import time
 import random```
-* Set a prefix character of your choice. I will use '!' ```python
-prefix = '1' ```
-* Finally declare your class and stub out your messages: ```python
-class MyClient(discord.Client):
+* Set a prefix character of your choice. I will use '!' ```prefix = '1' ```
+* Finally declare your class and stub out your messages: 
+```class MyClient(discord.Client):
 
 	@tasks.loop()
 	async def on_interval():
