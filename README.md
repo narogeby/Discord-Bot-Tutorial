@@ -37,7 +37,7 @@ To make a Discord bot you will need to have somewhere to create it and Python it
     * Copy the generated URL. ![the generated URL](copy-URL.png)
     * Copy your new URL into your browser.
     * Invite the bot to your test server. ![invite page](Invite-to-server.png)
-    * Approve the permissions for the bot. ![approve the permissions](Approve-the-bots=permission.png)
+    * Approve the permissions for the bot. ![approve the permissions](Approve-the-bots-permission.png)
 8. Create the .py file to start proramming your bot in.
     * Open VScode and click "New file..." ![New file button VSCode](New-File-VSCode.png)
     * Name the file "{BotName}.py" with whatever name you want.
