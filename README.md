@@ -5,7 +5,7 @@ A short tutorial on how to start building Discord Bots that perform simple tasks
 To make a Discord bot you will need to have somewhere to create it and Python itself. I also have shared some extensions I used to make things easier. The provided list is what I'm using, but it is possible to use other options.
 * [VSCode](https://code.visualstudio.com/)
 * The Python language support extension in VSCode (Extension ID: ms-python.python)
-* The GitLens VSCode extension in VSCode (Extension ID: eamodio.gitlens)
+* The discord.py package
 * [Python version 3.13.0](https://www.python.org/downloads/release/python-3130/)
 * A [Discord account](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications%2F)
 
@@ -17,8 +17,7 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * Go the the [download page](https://www.python.org/downloads/release/python-3130/) and download the correct version for your system
 * ![Downloads area for different systems](Python-Download-Screen-Cropped.png)
 ### 3. Add the recommended extensions for VSCode by searching the Extension ID in the Extensions tab (ctrl+shift+x) and install the discord.py library
-* Install the Python language support extension (Extension ID: ms-python.python) 
-* Install the Gitlens VSCode extension (Extension ID: eamodio.gitlens)
+* Install the Python language support extension (Extension ID: ms-python.python)
 * Install the discord.py library using the following command in the terminal "py -3 -m pip install -U discord.py"
 ### 4. Make a Discord account if you don't have one
 * [This link should take you to a login page where you can login or make a new account](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications%2F)
@@ -67,8 +66,23 @@ class MyClient(discord.Client):
 
 	async def on_message(self, message):
 ```
-### 10.
-
-
-
-
+### 10. Start writing the on_ready method.
+* Inside the on_ready method you will write a startup message. This can be customized however you want but mine looks like the following:
+```python
+async def on_ready(self):
+	print(self.user + " is ready...")
+```
+### 11. Set up your variables, make sure the bot didn't send the message, and implement the hello command.
+* The first steps are to store the message content in an easily accessible variable, store the channel the message was sent in as a easily accessible variable and make sure we did not send the message (this last part is just a safety mechanism and isn't techinically needed since the bot will never send any of its own commands).
+```python
+message_content = message.content.lower()
+channel = message.channel
+if message.author == self.user:
+	return
+```
+* Now write the introduction command. This one I do not add the prefix to as a preference.
+```python
+if 'hello tutorial bot' in message_content:
+	await message.send("Hello {}".format(message.author.name))
+```
+### 12. 
