@@ -10,7 +10,7 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * A [Discord account](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications%2F)
 
 ## Instructions
-###1. Download [VSCode](https://code.visualstudio.com/)
+### 1. Download [VSCode](https://code.visualstudio.com/)
 * Go to their website [here](https://code.visualstudio.com/) and download the correct version for your system.
 * Follow the installation steps in the installation wizard.
 ### 2. Download [Python version 3.13.0](https://www.python.org/downloads/release/python-3130/)
