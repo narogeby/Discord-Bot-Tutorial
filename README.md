@@ -85,4 +85,26 @@ if message.author == self.user:
 if 'hello tutorial bot' in message_content:
 	await message.send("Hello {}".format(message.author.name))
 ```
-### 12. 
+### 12. Collect some images from the internet and make a command to send them.
+* Collect the images from the internet that you want to be able to send. I chose different colors as an example.
+* Take the links and put them in an array **outside** of the class.
+```python
+links = [{link1}, {link2}, {link3}]
+```
+* Write the if statement to check for the command and send a random one of your links.
+```python
+if (prefix + 'links') in message_content:
+	await message.send(random.choice(links))
+```
+### 13. Collect some gifs you like and make a command to send them.
+* Collect some gifs. These should be from tenor (the built in gif renderer) in order to make this step easier.
+* Put the links to the gifs in an array **outside** of the class.
+```python
+gifs = [{gif1}, {gif2}, {gif3}]
+```
+* Write the if statement to check for the command and send a random on of your gifs
+```python
+if(prefix + 'gifs') in message_content:
+	await message.send(random.choice(links))
+```
+### 14. 
