@@ -21,18 +21,21 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 ### 4. Install the discord.py library
 * For Windows install the discord.py library using the following command in the terminal "py -3 -m pip install -U discord.py"
 * For Linux  install the discord.py library using the following command in the terminal "pip3 install -U discord.py"
-### 5. Make a Discord account if you don't have one
-* [This link should take you to a login page where you can login or make a new account](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications%2F)
+### 5. Make a Discord account if you don't have one and configure it for developing discord applications
+* [This link should take you to a login page where you can login or make a new account](https://discord.com/login)
+* Now go to the settings of your account.
+* Go to the Advanced tab and turn on developer mode ![turn on developer mode in the advanced tab](Developer_mode.png)
 ### 6. Make a new application in the Discord developer portal
+* Go to the [Discord developer portal](https://discord.com/developers/applications).
 * Click the "New Application" button. ![New Application button red rectangle](Discord-developer-portal-New-Application.png)
 * In the popup type a name for your Discord bot and agree to the Developer TOS and the Developer policy. ![Naming your new application](New-Application-Naming.png)
 ### 7. Create a test Discord server for you to test your bot in.
-* Either in the Discord application or on the (Discord website)[https://discord.com/channels/@me] click the add a server button. ![Add a server button](Discord-Server-Creation-Red-Square.png)
+* Either in the Discord application or on the [Discord website](https://discord.com/channels/@me) click the add a server button. ![Add a server button](Discord-Server-Creation-Red-Square.png)
 * Click the "Create My Own" button. ![Create my own button](Add-A-Server.png)
 * Click the "For me and my freinds button".
 * Name your server and click create. ![name your server](Name_The_Server.png)
 ### 8. Invite the bot to the test server you just made.
-* Go to the OAuth2 tab in your (Discord developer portal)[https://discord.com/developers/applications] page for your bot.!(OAuth2 Location)[OAuth2_Loacation.png]
+* Go to the OAuth2 tab in your [Discord developer portal](https://discord.com/developers/applications) page for your bot.!(OAuth2 Location)[OAuth2_Loacation.png]
 * Check the bot box under scopes for bot. ![bot scope](Scope-discord.png)
 * Check the bot permissions shown in the picture below. ![bot permissions](Bot-permissions.png)
 * Copy the generated URL. ![the generated URL](copy-URL.png)
@@ -60,6 +63,10 @@ prefix = '!'
 ```python
 interval = 7200
 ```
+* Set the client variable up:
+```python
+client = discord.Client
+```
 * Finally declare your class and stub out your messages: 
 ```python
 class MyClient(discord.Client):
@@ -82,6 +89,7 @@ async def on_ready(self):
 ### 12. Set up your variables, make sure the bot didn't send the message, and implement the hello command.
 * The first steps are to store the message content in an easily accessible variable, store the channel the message was sent in as a easily accessible variable and make sure we did not send the message (this last part is just a safety mechanism and isn't techinically needed since the bot will never send any of its own commands).
 ```python
+# all of this goes in the on_message() function
 message_content = message.content.lower()
 channel = message.channel
 if message.author == self.user:
@@ -89,42 +97,50 @@ if message.author == self.user:
 ```
 * Now write the introduction command. This one I do not add the prefix to as a preference.
 ```python
+# goes in the on_message() function
 if 'hello tutorial bot' in message_content:
-	await message.send("Hello {}".format(message.author.name))
+	await channel.send("Hello {}".format(message.author.name))
 ```
 ### 13. Collect some images from the internet and make a command to send them.
-* Collect the images from the internet that you want to be able to send. I chose different colors as an example.
+* Collect the images from the internet that you want the bot to send when you use the command we are about to set up. I chose different colors as an example.
 * Take the links and put them in an array **outside** of the class.
 ```python
-links = [{link1}, {link2}, {link3}]
+# this goes outside the Class
+links = ["link1", "link2", "link3"]
 ```
 * Write the if statement to check for the command and send a random one of your links.
 ```python
+# this goes in the on_message() function
 if (prefix + 'links') in message_content:
-	await message.send(random.choice(links))
+	await channel.send(random.choice(links))
 ```
 ### 14. Collect some gifs you like and make a command to send them.
-* Collect some gifs. These should be from tenor (the built in gif renderer) in order to make this step easier.
+* Collect some gifs. These should be from [tenor](https://tenor.com/) (the built in gif renderer) in order to make this step easier.
 * Put the links to the gifs in an array **outside** of the class.
 ```python
-gifs = [{gif1}, {gif2}, {gif3}]
+# this goes outside the Class
+gifs = ["gif1", "gif2", "gif3"]
 ```
 * Write the if statement to check for the command and send a random on of your gifs
 ```python
+# this goes in the on_message() function
 if(prefix + 'gifs') in message_content:
-	await message.send(random.choice(links))
+	await channel.send(random.choice(links))
 ```
 ### 15. Write the "set interval" command.
 * Begin by writing the if statement.
 ```python
+# this goes in the on_message() function
 if (prefix + 'set interval') in message:
 ```
 * Now we want to edit the global variable (the variable outside the class) called interval. To do this we will start by writing the following line of code inside the if statement:
 ```python
+# inside the if statement you just wrote
 global interval
 ```
 * The previous step allows us to access the interval variable that is global instead of making a new variable inside the if statement. Now we will set the interval to the value sent by the user in the command using the following command:
 ```python
+# inside the if statement you just wrote
 interval = int(message_content[15:])
 ```
 * The previous step just takes the last bit of the message (the part after the space between the word interval and the new interval value) and turns it into an int to set the new interval.
@@ -137,13 +153,14 @@ command above the methods header.
 * Acquire the channel ID of the channel you want this message to be sent in.
 * With the channel id write the following lines of code inside the on_interval method:
 ```python
+# inside the on_interval() function
 channel = client.get_channel({channel id})
 await channel.send("Whatever you want this to say")
 ```
 ### 17. Acquire the token for your bot and set it up so your bot can work.
 * Go back to the discord developer portal and go to the page for this bot.
-* Go to the Bot tab and click reset token. !(Reset Token button location)[discord_token_location.png]
-* A pop up will appear and you will click the red button. !(Yes Do It!)[Yes_Do_It.png]
+* Go to the Bot tab and click reset token. ![Reset Token button location](discord_token_location.png)
+* A pop up will appear and you will click the red button. ![Yes Do It!](Yes_Do_It.png)
 * A new token will be generated. Copy the token to your clipboard.
 * In your .py file where you have been programming your bot, add the following code:
 ```python
