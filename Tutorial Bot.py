@@ -3,9 +3,7 @@ import json
 import random
 import time
 import datetime
-from discord.ext import commands, tasks
-from discord.ext.commands import Bot
-from discord.voice_client import VoiceClient
+from discord.ext import tasks
 
 colors = ['https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.sB7oAgOuL9mBm8PiFvb_nQHaEo%26pid%3DApi&f=1&ipt=9e4b75b300b02bb86e11a57172a187c6ed21b888d55eb39c640f1dfd43441219&ipo=images',
           'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.bavnPo93SaXTdsRdg163BAHaEK%26pid%3DApi&f=1&ipt=ab44e36e40cc49cdc7c98f7b4ecdb5253072c2c4d2e8a481eaed3fbd54ef460f&ipo=images',
@@ -45,6 +43,8 @@ class MyClient(discord.Client):
         if (prefix + 'set interval') in message_content:
             global interval
             interval = int(message_content[14:])
-        #if 'moonlight' in message_content:
+            
 
-        
+token_file = open("C:\Users\natha\Discord Bot Tutorial\token.txt")
+token = token_file.read()
+bot = discord.bot(token)
