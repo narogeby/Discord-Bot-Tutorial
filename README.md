@@ -150,7 +150,7 @@ interval = int(message_content[15:])
 @tasks.loop(interval)
 ```
 command above the methods header.
-* Acquire the channel ID of the channel you want this message to be sent in.
+* Acquire the channel ID of the channel you want this message to be sent in by right clicking the channel you want it sent in and clicking "Copy Channel ID". ![drop down menu](Channel-Drop-down.png)
 * With the channel id write the following lines of code inside the on_interval method:
 ```python
 # inside the on_interval() function
@@ -167,5 +167,6 @@ await channel.send("Whatever you want this to say")
 bot = discord.bot("Your Token Here")
 ```
 ### 18. Run the python program.
+
 ### 19. Test your bot in your test server.
 * Try using the commands you made and see what your new Discord Bot can do!
