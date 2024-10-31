@@ -15,7 +15,7 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * Follow the installation steps in the installation wizard.
 ### 2. Download [Python version 3.13.0](https://www.python.org/downloads/release/python-3130/)
 * Go the the [download page](https://www.python.org/downloads/release/python-3130/) and download the correct version for your system
-* ![Downloads area for different systems](Python-Download-Screen-Cropped.png)
+* ![Downloads area for different systems](Pictures/Python-Download-Screen-Cropped.png)
 ### 3. Add the recommended extension for VSCode by searching the Extension ID in the Extensions tab (ctrl+shift+x)
 * Install the Python language support extension (Extension ID: ms-python.python)
 ### 4. Install the discord.py library
@@ -24,29 +24,30 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 ### 5. Make a Discord account if you don't have one and configure it for developing discord applications
 * [This link should take you to a login page where you can login or make a new account](https://discord.com/login)
 * Now go to the settings of your account.
-* Go to the Advanced tab and turn on developer mode ![turn on developer mode in the advanced tab](Developer_mode.png)
+* Go to the Advanced tab and turn on developer mode ![turn on developer mode in the advanced tab](Pictures/Developer_mode.png)
 ### 6. Make a new application in the Discord developer portal
 * Go to the [Discord developer portal](https://discord.com/developers/applications).
-* Click the "New Application" button. ![New Application button red rectangle](Discord-developer-portal-New-Application.png)
-* In the popup type a name for your Discord bot and agree to the Developer TOS and the Developer policy. ![Naming your new application](New-Application-Naming.png)
+* Click the "New Application" button. ![New Application button red rectangle](Pictures/Discord-developer-portal-New-Application.png)
+* In the popup type a name for your Discord bot and agree to the Developer TOS and the Developer policy. ![Naming your new application](Pictures/New-Application-Naming.png)
 ### 7. Create a test Discord server for you to test your bot in.
-* Either in the Discord application or on the [Discord website](https://discord.com/channels/@me) click the add a server button. ![Add a server button](Discord-Server-Creation-Red-Square.png)
-* Click the "Create My Own" button. ![Create my own button](Add-A-Server.png)
+* Either in the Discord application or on the [Discord website](https://discord.com/channels/@me) click the add a server button. ![Add a server button](Pictures/Discord-Server-Creation-Red-Square.png)
+* Click the "Create My Own" button. ![Create my own button](Pictures/Add-A-Server.png)
 * Click the "For me and my freinds button".
-* Name your server and click create. ![name your server](Name_The_Server.png)
+* Name your server and click create. ![name your server](Pictures/Name_The_Server.png)
 ### 8. Invite the bot to the test server you just made.
-* Go to the Bot tab and scroll down to "Priveleged Gatewat Intents" and turn **on** message content intent. ![turn this on](message-content-intent.png)
-* Go to the OAuth2 tab in your [Discord developer portal](https://discord.com/developers/applications) page for your bot.!(OAuth2 Location)[OAuth2_Loacation.png]
-* Set the URI Redirect to "https://discordapp.com/oauth2/authorize?&client_id={your Client ID here}&scope=bot" ![Redirect URI](ReDirect-URI.png)
-* Check the bot and messages.read boxes under scopes for bot. ![bot scope](Scope-discord.png)
-* Select the Redirect URI you just made. ![Select the Redirect URI](Select-Redirect-URI.png)
-* Check the bot permissions shown in the picture below. ![bot permissions](Bot-permissions.png)
-* Copy the generated URL. ![the generated URL](copy-URL.png)
+* Go to your [Discord developer portal](https://discord.com/developers/applications)
+* Go to the Bot tab and scroll down to "Priveleged Gatewat Intents" and turn **on** message content intent. ![turn this on](Pictures/message-content-intent.png)
+* Go to the OAuth2 tab page for your bot.!(OAuth2 Location)[OAuth2_Loacation.png]
+* Set the URI Redirect to "https://discordapp.com/oauth2/authorize?&client_id={yourClientIDhere}&scope=bot" ![Redirect URI](Pictures/Redirect-URI.png)
+* Check the bot and messages.read boxes under scopes for bot. ![bot scope](Pictures/Scope-discord.png)
+* Select the Redirect URI you just made. ![Select the Redirect URI](Pictures/Select-Redirect_URI.png)
+* Check the bot permissions shown in the picture below. ![bot permissions](Pictures/Bot-permissions.png)
+* Copy the generated URL. ![the generated URL](Pictures/copy-URL.png)
 * Copy your new URL into your browser.
-* Invite the bot to your test server. ![invite page](Invite-to-server.png)
-* Approve the permissions for the bot. ![approve the permissions](Approve-the-bots-permission.png)
+* Invite the bot to your test server. ![invite page](Pictures/Invite-to-server.png)
+* Approve the permissions for the bot. ![approve the permissions](Pictures/Approve-the-bots-permission.png)
 ### 9. Create the .py file to start proramming your bot in.
-* Open VScode and click "New file..." ![New file button VSCode](New-File-VSCode.png)
+* Open VScode and click "New file..." ![New file button VSCode](Pictures/New-File-VSCode.png)
 * Name the file "{BotName}.py" with the name you used in step 6 when making the application for the bot.
 * You can put the file in whatever folder you want, but I suggest making a new one for your bot.
 ### 10. Begin by importing your packages, adding special commands, and stubbing out methods.
@@ -163,7 +164,7 @@ on_interval.change_interval(seconds = interval)
 @tasks.loop(seconds = interval)
 ```
 command above the methods header.
-* Acquire the channel ID of the channel you want this message to be sent in by right clicking the channel you want it sent in and clicking "Copy Channel ID". ![drop down menu](Channel-Drop-down.png)
+* Acquire the channel ID of the channel you want this message to be sent in by right clicking the channel you want it sent in and clicking "Copy Channel ID". ![drop down menu](Pictures/Channel-Drop-down.png)
 * To make sure this doesn't send as soon as the bot starts write an if statement to prevent it and use the global command to gain access to first_time:
 ```python
 global first_time
@@ -181,8 +182,8 @@ first_time = 2
 ```
 ### 17. Acquire the token for your bot and set it up so your bot can work.
 * Go back to the discord developer portal and go to the page for this bot.
-* Go to the Bot tab and click reset token. ![Reset Token button location](discord_token_location.png)
-* A pop up will appear and you will click the red button. ![Yes Do It!](Yes_Do_It.png)
+* Go to the Bot tab and click reset token. ![Reset Token button location](Pictures/discord_token_location.png)
+* A pop up will appear and you will click the red button. ![Yes Do It!](Pictures/Yes_Do_It.png)
 * A new token will be generated. Copy the token to your clipboard.
 * In your .py file where you have been programming your bot, add the following code:
 ```python
