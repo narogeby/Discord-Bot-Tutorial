@@ -35,8 +35,11 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * Click the "For me and my freinds button".
 * Name your server and click create. ![name your server](Name_The_Server.png)
 ### 8. Invite the bot to the test server you just made.
+* Go to the Bot tab and scroll down to "Priveleged Gatewat Intents" and turn **on** message content intent. ![turn this on](message-content-intent.png)
 * Go to the OAuth2 tab in your [Discord developer portal](https://discord.com/developers/applications) page for your bot.!(OAuth2 Location)[OAuth2_Loacation.png]
-* Check the bot box under scopes for bot. ![bot scope](Scope-discord.png)
+* Set the URI Redirect to "https://discordapp.com/oauth2/authorize?&client_id={your Client ID here}&scope=bot" ![Redirect URI](ReDirect-URI.png)
+* Check the bot and messages.read boxes under scopes for bot. ![bot scope](Scope-discord.png)
+* Select the Redirect URI you just made. ![Select the Redirect URI](Select-Redirect-URI.png)
 * Check the bot permissions shown in the picture below. ![bot permissions](Bot-permissions.png)
 * Copy the generated URL. ![the generated URL](copy-URL.png)
 * Copy your new URL into your browser.
@@ -63,17 +66,21 @@ prefix = '!'
 ```python
 interval = 7200
 ```
+* Set a variable named first_time and make its value 1
+```python
+first_time = 1
+```
 * Set the client variable up:
 ```python
 client = discord.Client
 ```
 * Finally declare your class and stub out your messages: 
 ```python
+@tasks.loop()
+async def on_interval():
+
+
 class MyClient(discord.Client):
-
-	@tasks.loop()
-	async def on_interval():
-
 
 	async def on_ready(self):
 
@@ -133,29 +140,44 @@ if(prefix + 'gifs') in message_content:
 # this goes in the on_message() function
 if (prefix + 'set interval') in message:
 ```
-* Now we want to edit the global variable (the variable outside the class) called interval. To do this we will start by writing the following line of code inside the if statement:
+* Now we want to edit the global variables (the variables outside the class) called interval and first_time. To do this we will start by writing the following line of code inside the if statement:
 ```python
 # inside the if statement you just wrote
 global interval
+global first_time
 ```
-* The previous step allows us to access the interval variable that is global instead of making a new variable inside the if statement. Now we will set the interval to the value sent by the user in the command using the following command:
+* The previous step allows us to access the interval and first_time variables that is global instead of making a new variable inside the if statement. Now we will set the interval to the value sent by the user in the command using the following command and set first_time to 1:
 ```python
 # inside the if statement you just wrote
 interval = int(message_content[15:])
+first_time = 1
 ```
 * The previous step just takes the last bit of the message (the part after the space between the word interval and the new interval value) and turns it into an int to set the new interval.
+* Now we will reset the on_interval command to run with the new interval.
+```python
+on_interval.change_interval(seconds = interval)
+```
 ### 16. Create the on_interval method.
 * The interval method already is set up to run on the interval defined by the interval variable using the
 ```python
-@tasks.loop(interval)
+@tasks.loop(seconds = interval)
 ```
 command above the methods header.
 * Acquire the channel ID of the channel you want this message to be sent in by right clicking the channel you want it sent in and clicking "Copy Channel ID". ![drop down menu](Channel-Drop-down.png)
+* To make sure this doesn't send as soon as the bot starts write an if statement to prevent it and use the global command to gain access to first_time:
+```python
+global first_time
+if(first_time != 1):
+    ```
 * With the channel id write the following lines of code inside the on_interval method:
 ```python
-# inside the on_interval() function
+# inside the if statement in the on_interval() function
 channel = client.get_channel({channel id})
 await channel.send("Whatever you want this to say")
+```
+* Set the first_time variable to 2 outside of the for loop so that the message will be sent next time it runs:
+```python
+first_time = 2
 ```
 ### 17. Acquire the token for your bot and set it up so your bot can work.
 * Go back to the discord developer portal and go to the page for this bot.
@@ -164,9 +186,16 @@ await channel.send("Whatever you want this to say")
 * A new token will be generated. Copy the token to your clipboard.
 * In your .py file where you have been programming your bot, add the following code:
 ```python
+intents = discord.Intents.default()
+intents.message_content = True
+client = MyClient(intents=intents)
 bot = discord.bot("Your Token Here")
 ```
 ### 18. Run the python program.
-
+* To run your bot's code type "python {bot_file_name}.py" into the terminal.
 ### 19. Test your bot in your test server.
 * Try using the commands you made and see what your new Discord Bot can do!
+
+## Troubleshooting
+* If you are running into compile errors please refer to my sample discord bot for the correct white space since python utilizes white space to determine the inside of functions and if statements
+* If your bot is not sending or receiving messages please be sure to check step 8 and make sure you correctly set up your permissions and scopes and make sure the message content intent is **on**
