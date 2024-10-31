@@ -15,7 +15,7 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * Follow the installation steps in the installation wizard.
 ### 2. Download [Python version 3.13.0](https://www.python.org/downloads/release/python-3130/)
 * Go the the [download page](https://www.python.org/downloads/release/python-3130/) and download the correct version for your system
-* ![Downloads area for different systems](Python-Download-Screen-Cropped.png)
+* ![Downloads area for different systems](Pictures/Python-Download-Screen-Cropped.png)
 ### 3. Add the recommended extension for VSCode by searching the Extension ID in the Extensions tab (ctrl+shift+x)
 * Install the Python language support extension (Extension ID: ms-python.python)
 ### 4. Install the discord.py library
@@ -38,9 +38,9 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * Go to your [Discord developer portal](https://discord.com/developers/applications)
 * Go to the Bot tab and scroll down to "Priveleged Gatewat Intents" and turn **on** message content intent. ![turn this on](Pictures/message-content-intent.png)
 * Go to the OAuth2 tab page for your bot.!(OAuth2 Location)[OAuth2_Loacation.png]
-* Set the URI Redirect to "https://discordapp.com/oauth2/authorize?&client_id={your Client ID here}&scope=bot" ![Redirect URI](Pictures/ReDirect-URI.png)
+* Set the URI Redirect to "https://discordapp.com/oauth2/authorize?&client_id={yourClientIDhere}&scope=bot" ![Redirect URI](Pictures/Redirect-URI.png)
 * Check the bot and messages.read boxes under scopes for bot. ![bot scope](Pictures/Scope-discord.png)
-* Select the Redirect URI you just made. ![Select the Redirect URI](Pictures/Select-Redirect-URI.png)
+* Select the Redirect URI you just made. ![Select the Redirect URI](Pictures/Select-Redirect_URI.png)
 * Check the bot permissions shown in the picture below. ![bot permissions](Pictures/Bot-permissions.png)
 * Copy the generated URL. ![the generated URL](Pictures/copy-URL.png)
 * Copy your new URL into your browser.
