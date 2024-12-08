@@ -10,9 +10,9 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * A [Discord account](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications%2F)
 
 ## Instructions
-### 1. Download [VSCode](https://code.visualstudio.com/)
-* Go to their website [here](https://code.visualstudio.com/) and download the correct version for your system.
-* Follow the installation steps in the installation wizard.
+### 1. Download and Install [VSCode](https://code.visualstudio.com/)
+1. Go to their website [here](https://code.visualstudio.com/) and download the correct version for your system.
+2. Follow the installation steps in the installation wizard.
 ### 2. Download [Python version 3.13.0](https://www.python.org/downloads/release/python-3130/)
 * Go the the [download page](https://www.python.org/downloads/release/python-3130/) and download the correct version for your system
 * ![Downloads area for different systems](Pictures/Python-Download-Screen-Cropped.png)
@@ -22,9 +22,9 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * For Windows install the discord.py library using the following command in the terminal "py -3 -m pip install -U discord.py"
 * For Linux  install the discord.py library using the following command in the terminal "pip3 install -U discord.py"
 ### 5. Make a Discord account if you don't have one and configure it for developing discord applications
-* [This link should take you to a login page where you can login or make a new account](https://discord.com/login)
-* Now go to the settings of your account.
-* Go to the Advanced tab and turn on developer mode ![turn on developer mode in the advanced tab](Pictures/Developer_mode.png)
+1. [This link should take you to a login page where you can login or make a new account](https://discord.com/login)
+2. Now go to the settings of your account.
+3. Go to the Advanced tab and turn on developer mode ![turn on developer mode in the advanced tab](Pictures/Developer_mode.png)
 ### 6. Make a new application in the Discord developer portal
 * Go to the [Discord developer portal](https://discord.com/developers/applications).
 * Click the "New Application" button. ![New Application button red rectangle](Pictures/Discord-developer-portal-New-Application.png)
