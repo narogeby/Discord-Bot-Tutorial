@@ -171,7 +171,7 @@ command above the methods header.
 ```python
 global first_time
 if(first_time != 1):
-    ```
+```
 * With the channel id write the following lines of code inside the on_interval method:
 ```python
 # inside the if statement in the on_interval() function
