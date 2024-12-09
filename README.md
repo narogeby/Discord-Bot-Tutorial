@@ -38,7 +38,7 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 * Name your server and click create. ![name your server](Pictures/Name_The_Server.png)
 ### 8. Invite the bot to the test server you just made.
 * Go to your [Discord developer portal](https://discord.com/developers/applications)
-* Go to the Bot tab and scroll down to "Priveleged Gatewat Intents" and turn **(((ON)))** message content intent. ![turn this on](Pictures/message-content-intent.png)
+* Go to the Bot tab and scroll down to "Priveleged Gatewat Intents" and turn **ON** message content intent. ![turn this on](Pictures/message-content-intent.png)
 * Go to the OAuth2 tab page for your bot.!(OAuth2 Location)[OAuth2_Loacation.png]
 * Set the URI Redirect to "https://discordapp.com/oauth2/authorize?&client_id={yourClientIDhere}&scope=bot" ![Redirect URI](Pictures/Redirect-URI.png)
 * Check the bot and messages.read boxes under scopes for bot. ![bot scope](Pictures/Scope-discord.png)
