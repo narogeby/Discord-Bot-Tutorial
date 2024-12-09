@@ -1,5 +1,7 @@
 # Discord-Bot-Tutorial
-A short tutorial on how to start building Discord Bots that perform simple tasks.
+
+## Intro
+This GitHub repository exists to give instructions on how to build a simple Discord bot. A Discord bot is a program that interacts with the Discord API to perform actions on Discord's social platform. In this set of instructions the final product will be a Discord bot that will only work in a Discord server. The bot will be able to respond to basic messages and commands sent by users in the server and will also be able to send messages on a timer. This tutorial is not all encompassing and there are many other possibilities with the Discord API, but this is designed to be a simple beginner guide to making Discord bots and if you are interested in learning more go to the [Discord API Documentation Website](https://discord.com/developers/docs/reference).
 
 ## Materials
 To make a Discord bot you will need to have somewhere to create it and Python itself. I also have shared some extensions I used to make things easier. The provided list is what I'm using, but it is possible to use other options.
