@@ -17,7 +17,7 @@ To make a Discord bot you will need to have somewhere to create it and Python it
 2. Follow the installation steps in the installation wizard.
 ### 2. Download [Python version 3.13.0](https://www.python.org/downloads/release/python-3130/)
 * Go the the [download page](https://www.python.org/downloads/release/python-3130/) and download the correct version for your system
-* ![Downloads area for different systems](Pictures/Python-Download-Screen-Cropped.png)
+![Downloads area for different systems](Pictures/Python-Download-Screen-Cropped.png)
 ### 3. Add the recommended extension for VSCode by searching the Extension ID in the Extensions tab (ctrl+shift+x)
 * Install the Python language support extension (Extension ID: ms-python.python)
 ### 4. Install the discord.py library
